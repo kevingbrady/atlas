@@ -17,6 +17,19 @@ HOST = '127.0.0.1'
 PORT = 27017
 mongoengine.connect('Atlas', host=HOST, port=PORT)
 
+COLLECTION_NAMES = {
+
+    'cybersecurity_threats': 'Atlas_cybersecurity_threats',
+    'actors': 'Atlas_actors',
+    'responding_organizations': 'Atlas_responding_organizations',
+    'technologies': 'Atlas_technologies',
+    'discipline': 'Atlas_disciplines',
+    'locations': 'Atlas_locations',
+    'information_types': 'Atlas_information_types',
+    'information_categories': 'Atlas_informatiom_categories',
+    'activities': 'Atlas_activities',
+    'use_cases': 'Atlas_UseCases'
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
