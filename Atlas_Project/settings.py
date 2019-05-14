@@ -23,7 +23,7 @@ COLLECTION_NAMES = {
     'actors': 'Atlas_actors',
     'responding_organizations': 'Atlas_responding_organizations',
     'technologies': 'Atlas_technologies',
-    'discipline': 'Atlas_disciplines',
+    'disciplines': 'Atlas_disciplines',
     'locations': 'Atlas_locations',
     'information_types': 'Atlas_information_types',
     'information_categories': 'Atlas_informatiom_categories',
