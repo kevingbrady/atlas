@@ -26,7 +26,7 @@ COLLECTION_NAMES = {
     'disciplines': 'Atlas_disciplines',
     'locations': 'Atlas_locations',
     'information_types': 'Atlas_information_types',
-    'information_categories': 'Atlas_informatiom_categories',
+    'information_categories': 'Atlas_information_categories',
     'activities': 'Atlas_activities',
     'use_cases': 'Atlas_UseCases'
 }
