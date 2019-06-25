@@ -12,16 +12,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import mongoengine
-<<<<<<< HEAD
+
 import sys
 
 mongoengine.connect('Atlas', host='localhost', port=27017)
-=======
 
-HOST = '127.0.0.1'
-PORT = 27017
-mongoengine.connect('Atlas', host=HOST, port=PORT)
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
 
 COLLECTION_NAMES = {
 
@@ -40,10 +35,6 @@ COLLECTION_NAMES = {
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -51,15 +42,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tx6xjjns2%y6a)_!fi=!klw)jxys&hk_@8+j&2n_(oj@wml!m8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
 DEBUG = (True, False)[len(sys.argv) > 2]
 #TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['localhost', '*']
-=======
-DEBUG = True
-#TEMPLATE_DEBUG = False
-ALLOWED_HOSTS = ['*']
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
 
 
 # Application definition
@@ -74,12 +59,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_mongoengine',
     'webpack_loader',
-<<<<<<< HEAD
-    'Atlas'
-=======
     'Atlas',
     'Atlas_Project'
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
 ]
 
 MIDDLEWARE = [
@@ -93,10 +74,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Atlas_Project.urls'
-<<<<<<< HEAD
-=======
 INTERNAL_IPS = ('127.0.0.1',)
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
 
 TEMPLATES = [
     {
@@ -166,21 +144,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-<<<<<<< HEAD
 
 BUNDLE_DIR = os.path.join(STATIC_ROOT, "bundles")
 DEVELOPMENT_BUNDLE_DIR = os.path.join(STATIC_ROOT, "bundles", "development")
 PRODUCTION_BUNDLE_DIR = os.path.join(STATIC_ROOT, "bundles", "production")
-=======
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "Atlas/static"),
-)
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
 
 WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': not DEBUG,
-<<<<<<< HEAD
         'BUNDLE_DIR_NAME': os.path.join('bundles', 'development'),  # end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
@@ -209,9 +180,3 @@ STATICFILES_DIRS = [
     DEVELOPMENT_BUNDLE_DIR,
     PRODUCTION_BUNDLE_DIR
 ]
-=======
-        'BUNDLE_DIR_NAME': '/bundles/local/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
-    }
-}
->>>>>>> 05f6f64fd11b08e711b08523edc1e7c382d417b1
