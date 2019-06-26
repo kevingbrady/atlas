@@ -241,10 +241,8 @@ export default class UseCaseCatalog extends Component<Props> {
         height: 'calc(var(--vh, 1vh) * 5)',
         backgroundColor: 'darkgrey',
         fontWeight: 'bolder',
-        headerAlign: 'center',
-        border: 'outset',
         borderColor: 'darkgrey',
-        borderRadius: '8px'
+        borderRadius: '8px 8px 0 0'
         }
     }
 
@@ -425,75 +423,81 @@ export default class UseCaseCatalog extends Component<Props> {
             });
 
             return (
-                <div key={use_case.id} className={styles.catalogBody} onClick={() => this.handleUseCaseClick(use_case)}>
-                    <div className={styles.optionsBar}>
+                <div key={use_case.id} className={styles.catalogBody}>
+                    <div className={styles.optionsBar} onClick={() => this.handleUseCaseClick(use_case)}>
                         <h2>{use_case.name}</h2>
                     </div>
-                    <div className={styles.useCaseTables}>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_actors}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_information_types}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Information Types', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_cybersecurity_threats}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Cybersecurity Threats', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_disciplines}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Disciplines', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_responding_organizations}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Responding Organizations', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_technologies}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Technologies', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_activities}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Activities', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
-                            data={use_case_locations}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Locations', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
+                    <div className={styles.scrollBarContainer}>
+                        <div className={styles.useCaseTables}>
+                            <div className={styles.informationTypes}>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_information_types}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Information Types', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                             </div>
+                         <div className={styles.useCaseAttributes}>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_actors}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_cybersecurity_threats}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Cybersecurity Threats', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_disciplines}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Disciplines', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_responding_organizations}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Responding Organizations', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_technologies}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Technologies', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_activities}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Activities', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                                <BootstrapTable
+                                    classes={styles.attrTable}
+                                    data={use_case_locations}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Locations', headerStyle: this.getHeaderStyle()}]}
+                                    rowStyle={this.getRowStyle}
+                                    noDataIndication={noDataIndication}
+                                    keyField="id">
+                                </BootstrapTable>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )
@@ -580,7 +584,9 @@ export default class UseCaseCatalog extends Component<Props> {
                 </div>
             </div>
             <div id="UseCaseCatalog" className={styles.useCasesContainer}>
-                {currentView}
+                <div className={styles.scrollBarContainer}>
+                    {currentView}
+                </div>
             </div>
         </div>
          )
