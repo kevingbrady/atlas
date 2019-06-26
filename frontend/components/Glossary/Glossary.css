@@ -196,3 +196,7 @@
     background-color: dodgerblue;
     border-radius: 15px;
 }
+
+div.offset{
+    margin-left: 2%;
+}

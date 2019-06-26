@@ -327,6 +327,33 @@ export default class Glossary extends Component<Props> {
         )
     });
 
+    function DisplayResourceLinks(props){
+        const resource_links = props.resource_links
+
+        if (resource_links){
+            if (resource_links.length){
+                let buffer = []
+                for (var l in resource_links){
+                    let new_resource = (
+                        <p>
+                            <a href="{resource_links[l]['href']}">{resource_links[l]['hyperlink_name']}</a>
+                            <br/>
+                            <span class="offset">{resource_links[l].description}</span>
+                        </p>
+                     )
+                    buffer.push( new_resource )
+                 }
+                return <div>{buffer}</div>
+            }
+            else{
+                return <p/>;
+            }
+        }
+        else{
+            return <p/>;
+        }
+    }
+
     let glossaryComponent = this.state[glossarySelection].map((entry) => {
         let cleanView =  (
             <div className={styles.glossaryEntryView}>
@@ -349,6 +376,7 @@ export default class Glossary extends Component<Props> {
                 </div>
                 <div className={styles.descriptionContainer}>
                     <p>{entry.description}</p>
+                    <DisplayResourceLinks  resource_links={entry.resource_links}/>
                 </div>
             </div>
         )
