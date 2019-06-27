@@ -6,7 +6,6 @@
 
 .catalogContainer {
     background-color: grey;
-    border-style: outset;
     border-width: thick;
     border-color: #EDE6E3;
     border-radius: 15px;
@@ -51,7 +50,6 @@
 .catalogBody {
     background-color: #EDE6E3;
     padding: 1%;
-    border-style: outset;
     border-width: medium;
     margin-bottom: 16px;
     border-radius: 15px;
@@ -61,12 +59,12 @@
 
 .optionsBar {
     display: flex;
+    cursor: pointer;
     width: 99.5%;
     height: calc(var(--vh, 1vh) * 7);
     background-color: snow;
     align-items: center;
     border-color: snow;
-    border-style: outset;
     border-width: thick;
     border-radius: 15px;
     margin-bottom: 20px;

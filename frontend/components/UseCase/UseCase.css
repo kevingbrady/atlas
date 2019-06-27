@@ -1,7 +1,6 @@
 .componentBody {
 
   background-color: #EDE6E3;
-  border-style: outset;
   border-width: thick;
   height: auto;
   margin: 2px;
@@ -16,7 +15,6 @@
     align-items: center;
     background-color: snow;
     border-color: snow;
-    border-style: outset;
     border-width: thick;
     border-radius: 15px;
     margin-bottom: 15px;
@@ -67,6 +65,7 @@
 }
 
 .headerFormat {
+
     overflow: auto;
 }
 
@@ -98,7 +97,6 @@
     margin-bottom: 10px;
     background-color: snow;
     border-color: snow;
-    border-style: outset;
     border-width: thick;
     border-radius: 15px;
 

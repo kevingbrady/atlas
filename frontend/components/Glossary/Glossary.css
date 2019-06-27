@@ -8,7 +8,6 @@
     display: flex;
     align-items: center;
     background-color: grey;
-    border-style: outset;
     border-width: thick;
     border-color: #EDE6E3;
     border-radius: 15px;
@@ -26,7 +25,6 @@
   display: flex;
   flex-direction: column;
   height: calc(var(--vh, 1vh) * 85);
-  border-style: outset;
   border-width: thick;
   border-color: #EDE6E3;
   overflow: auto;
@@ -60,7 +58,6 @@
     color: snow;
     outline: none;
     margin: 5px;
-    border-style: outset;
     border-color: #F06449;
     border-width: medium;
     border-radius: 15px;
@@ -73,7 +70,6 @@
     font-size: 14px;
     font-weight: bolder;
     margin: 5px;
-    border-style: outset;
     outline: none;
     border-width: medium;
     border-color: snow;
@@ -86,7 +82,6 @@
     display: flex;
     flex-direction: column;
     background-color: #EDE6E3;
-    border-style: outset;
     border-width: thick;
     max-width: 99.5%;
     max-height: 337px;
@@ -103,7 +98,6 @@
     align-items: center;
     justify-content: center;
     border-color: snow;
-    border-style: outset;
     border-width: thick;
     border-radius: 15px;
     margin-bottom: 15px;
@@ -118,6 +112,7 @@
 }
 
 .descriptionContainer {
+    margin-left: 15px;
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
