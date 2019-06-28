@@ -44,6 +44,7 @@ class Technologies(Document):
 
     name = StringField(max_length=100, required=True)
     description = StringField(max_length=2000, null=True)
+    resource_links = ListField(max_length=1000, required=False)
 
     meta = {'collection': settings.COLLECTION_NAMES.get('technologies')}
 
