@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './UseCaseCatalog.css';
 import ReactJson from 'react-json-view';
 import BootstrapTable  from 'react-bootstrap-table-next';
@@ -86,7 +86,7 @@ const noDataIndication = () => (
 
 var savedScrollTop;
 
-export default class UseCaseCatalog extends Component<Props> {
+export default class UseCaseCatalog extends PureComponent<Props> {
   props: Props;
 
   constructor(props){
@@ -109,7 +109,7 @@ export default class UseCaseCatalog extends Component<Props> {
                 <div onClick={() => {
                     this.Select.state.menuIsOpen = false;
                     this.handleSearchOptionClick(props.data);
-                    }}>
+                }}>
                     <components.MultiValueLabel
                         {...labelProps}
                     />
@@ -150,10 +150,6 @@ export default class UseCaseCatalog extends Component<Props> {
     getLocations();
     getUseCases(this.state);
 
-  }
-
-  componentDidUpdate(){
-    this.setSearchOptions();
   }
 
   setSearchOptions(){
@@ -279,7 +275,7 @@ export default class UseCaseCatalog extends Component<Props> {
   }
 
 
-  handleSearch(option){
+  handleSearch(option, action){
 
     const {
       getUseCases
@@ -289,7 +285,7 @@ export default class UseCaseCatalog extends Component<Props> {
         return {
             selectedOption: option
             }
-    }, () => getUseCases(this.state.selectedOption));
+    }, () => getUseCases(this.state));
 
   }
 
@@ -312,7 +308,7 @@ export default class UseCaseCatalog extends Component<Props> {
             useCaseSelection: use_case,
             isEditing: isEditing
         }
-    });
+    }, () => getUseCases(this.state));
   }
 
   startEditor(){
@@ -363,7 +359,7 @@ export default class UseCaseCatalog extends Component<Props> {
             return {
                 optionToChange
             }
-        }, () => this.props.getUseCases(this.state.selectedOption));
+        }, () => this.props.getUseCases(this.state));
     }
   }
 
@@ -508,8 +504,6 @@ export default class UseCaseCatalog extends Component<Props> {
 
   getUseCaseView(){
 
-
-
     return(
         <UseCasePage
             handleUseCaseClick={this.handleUseCaseClick}
@@ -544,9 +538,11 @@ export default class UseCaseCatalog extends Component<Props> {
         isEditing
     } = this.state;
 
+    let currentView;
+    this.setSearchOptions();
+
     const animatedComponents = makeAnimated({ MultiValue: this.multiValue });
 
-    let currentView;
     this.catalogElement = document.getElementById("UseCaseCatalog");
 
     if(useCaseSelection === null){
@@ -571,7 +567,10 @@ export default class UseCaseCatalog extends Component<Props> {
                         classNamePrefix={styles.searchBar}
                         value={selectedOption}
                         options={searchOptions}
-                        onChange={(e) => this.handleSearch(e)}
+                        onChange={(option, action) => {
+                            this.handleSearch(option, action)
+                            }
+                        }
                         placeholder="Search Use Cases ..."
                     />
                     <Tooltip title="Add New Use Case">

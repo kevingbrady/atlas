@@ -54,7 +54,7 @@
     margin-bottom: 16px;
     border-radius: 15px;
     width: 99%;
-    height: calc(var(--vh, 1vh) * 40);
+    height: auto;
 }
 
 .optionsBar {
@@ -112,6 +112,7 @@
 }
 
 .attrTable {
+    background-color: black;
     color: snow;
     display: table;
     border-width: thick;
