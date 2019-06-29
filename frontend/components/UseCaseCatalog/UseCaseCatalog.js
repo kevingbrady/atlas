@@ -8,6 +8,8 @@ import UseCaseFormPage from '../../containers/UseCaseFormPage';
 import NoteAdd from "@material-ui/icons/NoteAdd";
 import Tooltip from '@material-ui/core/Tooltip';
 
+import {Link} from "react-router-dom";
+
 var equal = require('fast-deep-equal');
 var searchOptions = [];
 
@@ -418,6 +420,15 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                 return(entry)
             });
 
+            function crossLinkCellFormatter(cell, row, rowIndex, formatExtraData){
+                let section=formatExtraData['section']
+                return (
+                    <Link to={{ pathname:'glossary', search:"?section="+section+"&id="+row['id']}}>
+                        {cell}
+                    </Link>
+                );
+            }
+
             return (
                 <div key={use_case.id} className={styles.catalogBody}>
                     <div className={styles.optionsBar} onClick={() => this.handleUseCaseClick(use_case)}>
@@ -439,7 +450,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_actors}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.getHeaderStyle(), formatter: crossLinkCellFormatter, formatExtraData: {section: "actors"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">
@@ -447,7 +458,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_cybersecurity_threats}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Cybersecurity Threats', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Cybersecurity Threats', headerStyle: this.getHeaderStyle(), formatter: crossLinkCellFormatter, formatExtraData: {section: "cybersecurity_threats"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">
@@ -455,7 +466,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_disciplines}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Disciplines', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Disciplines', headerStyle: this.getHeaderStyle(), formatter: crossLinkCellFormatter, formatExtraData: {section: "disciplines"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">
@@ -463,7 +474,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_responding_organizations}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Responding Organizations', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Responding Organizations', headerStyle: this.getHeaderStyle(), formatter: crossLinkCellFormatter, formatExtraData: {section: "responding_organizations"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">
@@ -471,7 +482,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_technologies}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Technologies', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Technologies', headerStyle: this.getHeaderStyle(), formatter: crossLinkCellFormatter, formatExtraData: {section: "technologies"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">
@@ -479,7 +490,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_activities}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Activities', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Activities', headerStyle: this.getHeaderStyle(), formatter: crossLinkCellFormatter, formatExtraData: {section: "activities"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">
@@ -487,7 +498,7 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                                 <BootstrapTable
                                     classes={styles.attrTable}
                                     data={use_case_locations}
-                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Locations', headerStyle: this.getHeaderStyle()}]}
+                                    columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Locations', headerStyle: this.getHeaderStyle(),formatter: crossLinkCellFormatter, formatExtraData: {section: "locations"}}]}
                                     rowStyle={this.getRowStyle}
                                     noDataIndication={noDataIndication}
                                     keyField="id">

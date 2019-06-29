@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import styles from './Glossary.css';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -7,6 +7,8 @@ import Description from "@material-ui/icons/Description";
 import Delete from "@material-ui/icons/Delete";
 import Check from "@material-ui/icons/Check";
 import Clear from "@material-ui/icons/Clear";
+
+import { Router, Route, Link } from "react-router-dom";
 
 type Props = {
     actors: object,
@@ -19,7 +21,10 @@ type Props = {
     locations: object
 }
 
+
+
 export default class Glossary extends Component<Props> {
+
   props: Props;
 
   constructor(props){
@@ -34,11 +39,13 @@ export default class Glossary extends Component<Props> {
         locations: [],
         responding_organizations: [],
         information_categories: [],
-        technologies: []
+        technologies: [],
     }
 
     this.onSelect = this.onSelect.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.url_section = "";
+    this.url_id = "";
   }
 
   componentDidMount(){
@@ -63,6 +70,25 @@ export default class Glossary extends Component<Props> {
     getInformationCategories();
     getLocations();
 
+     // Added by mao to handle cross linking
+    let urlparams = new URLSearchParams(this.props.location.search);
+    this.url_section = urlparams.get("section");
+    this.url_id = urlparams.get("id");
+
+    let current_selection=""
+
+    let urlOptions = {"actors": "Actors",
+        "cybersecurity_threats": "Cybersecurity Threats",
+        "disciplines": "Disciplines",
+        "responding_organizations": "Responding Organizations",
+        "activities": "Activities",
+        "technologies": "Technologies",
+        "locations": "Locations",
+        "information_categories": "Information Categories"
+    };
+
+    current_selection = urlOptions[ this.url_section ] ?  this.url_section  : "actors"
+    this.onSelect(current_selection);
   }
 
   componentWillReceiveProps(newProps){
@@ -108,7 +134,6 @@ export default class Glossary extends Component<Props> {
   }
 
   onSelect(value){
-
     this.setState(state => {
         return {
             glossarySelection: value
@@ -381,6 +406,7 @@ export default class Glossary extends Component<Props> {
         )
     });
 
+    // Created by MOGATA
     function DisplayResourceLinks(props){
         const resource_links = props.resource_links;
 
@@ -411,32 +437,60 @@ export default class Glossary extends Component<Props> {
         }
     }
 
+    // Added by MAO to facilitate cross clicking
+    class GlossaryCleanView extends Component{
+
+        constructor(props){
+            super(props);
+            this.div_ref = createRef();
+        }
+
+        componentDidMount(){
+
+            if (this.props.url_id == this.props.entry.id){
+                this.div_ref.current.scrollIntoView();
+
+            }
+        }
+
+        render(){
+            return(
+                <div className={styles.glossaryEntryView}>
+                    <div className={styles.optionsBar}  ref={this.div_ref}>
+                        <h3>{this.props.entry.name}</h3>
+
+                        <Tooltip title="Edit">
+                            <Description
+                                className={styles.editButton}
+                                style={{'color': '#F06449', 'height': '50px', 'width': '40px'}}
+                                onClick={this.props.edit_callback}
+                            />
+                        </Tooltip>
+                        <Tooltip title="Delete">
+                            <Delete
+                                className={styles.deleteButton}
+                                style={{'color': '#F06449', 'height': '50px', 'width': '40px'}}
+                                onClick={this.props.delete_callback}
+                            />
+                        </Tooltip>
+                    </div>
+                    <div className={styles.descriptionContainer}>
+                        <p>{this.props.entry.description}</p>
+                        <DisplayResourceLinks  resource_links={this.props.entry.resource_links}/>
+                    </div>
+                </div>
+            )
+        }
+    }
+
     let glossaryComponent = this.state[glossarySelection].map((entry) => {
-        let cleanView =  (
-            <div id={entry.id} className={styles.glossaryEntryView}>
-                <div className={styles.optionsBar}>
-                    <h3>{entry.name}</h3>
-                    <Tooltip title="Edit">
-                        <Description
-                            className={styles.editButton}
-                            style={{'color': '#F06449', 'height': '50px', 'width': '40px'}}
-                            onClick={() => { this.startEditor(glossarySelection, entry)}}
-                        />
-                    </Tooltip>
-                    <Tooltip title="Delete">
-                        <Delete
-                            className={styles.deleteButton}
-                            style={{'color': '#F06449', 'height': '50px', 'width': '40px'}}
-                            onClick={() => { this.deleteGlossaryEntry(glossarySelection, entry)} }
-                        />
-                    </Tooltip>
-                </div>
-                <div className={styles.descriptionContainer}>
-                    <p>{entry.description}</p>
-                    <DisplayResourceLinks  resource_links={entry.resource_links}/>
-                </div>
-            </div>
-        )
+
+        let cleanView =  <GlossaryCleanView entry={entry}
+            url_id={this.url_id}
+
+            to_focus={this.url_id==entry.id}
+            edit_callback={() => { this.startEditor(glossarySelection, entry)}}
+            delete_callback={() => { this.deleteGlossaryEntry(glossarySelection, entry)} }/>
 
         let editView =  (
             <div id={entry.id} className={styles.glossaryEntryView}>
