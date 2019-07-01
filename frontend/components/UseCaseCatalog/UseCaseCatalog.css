@@ -1,3 +1,7 @@
+/*
+page background color: #36382E
+
+*/
 .componentBody {
   border-color: #EDE6E3;
   height: auto;
@@ -20,7 +24,7 @@
 }
 
 .useCasesContainer {
-  background-color: dodgerblue;
+
   display: flex;
   flex-direction: column;
   height: calc(var(--vh, 1vh) * 85);
@@ -48,13 +52,13 @@
 }
 
 .catalogBody {
+
     background-color: #EDE6E3;
     padding: 1%;
     border-width: medium;
     margin-bottom: 16px;
     border-radius: 15px;
-    width: 99%;
-    height: auto;
+
 }
 
 .optionsBar {
@@ -86,25 +90,35 @@
     border-radius: 15px;
     display: flex;
     position: relative;
-    padding: 2px;
+    padding: 5px;
     margin-right: 1%;
     align-items: center;
     justify-content: center;
-    background-color: #f06449;
+    background-color: snow;
 }
 
 .useCaseAttributes{
+
     display: flex;
     flex-direction: row;
+    overflow-x: auto;
     position: relative;
     align-items: stretch;
     justify-content: center;
     width: 100%;
     border-radius: 15px;
-    padding-top: 10px;
-    background-color: #36382E;
+    padding: 5px;
+    background-color: #FFFFFF;
+}
+
+.useCaseAttributes div{
+
+    flex: 1;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 .useCaseTables {
+
     display: flex;
     position: relative;
     flex-direction: row;
@@ -112,26 +126,25 @@
 }
 
 .attrTable {
-    background-color: black;
+
     color: snow;
     display: table;
     border-width: thick;
-    border-color: lightgrey;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 100%;
     height: calc(var(--vh, 1vh) * 25);
     border-radius: 15px;
     font-size: 100%;
 }
 
 .attrTable thead {
+    color: snow;
 }
 
 .attrTable tbody {
     display: block;
-    background-color: black;
-    color: snow;
-    max-height: calc(var(--vh, 1vh) * 16);
+    background-color: white;
+    color: black;
+    max-height: calc(var(--vh, 1vh) * 20);
     overflow: auto;
 }
 
@@ -139,11 +152,35 @@
 
   display: table;
   width: 100%;
-  text-align: center;
+  text-align: left;
+
+}
+
+.attrTable tbody td{
+  padding-left: 7px;
+}
+
+.useCaseAttributes a{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.useCaseAttribute a:hover{
+    color: blue;
+}
+
+.informationTypes a{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.informationTypes a:hover{
+    color: blue;
 }
 
 .noDataIndication {
-
-    display: flex;
     justify-content: center;
+    text-align: center;
 }

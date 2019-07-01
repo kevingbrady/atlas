@@ -111,9 +111,8 @@
 .informationTypeTable {
 
     display: table;
-    background-color: black;
     color: snow;
-    border-style: ridge;
+
     border-width: thick;
     border-color: lightgrey;
     margin-left: 20px;
@@ -151,13 +150,16 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-right: 10px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
+
 }
 
 .attrTable {
-    background-color: black;
-    color: snow;
+    color: black;
     display: table;
-    border-style: ridge;
     border-width: thick;
     border-color: lightgrey;
     height: calc(var(--vh, 1vh) * 25);
@@ -175,7 +177,7 @@
 
 .attrTable tbody {
     display: block;
-    color: snow;
+    color: black;
     width : 100%;
     max-height: calc(var(--vh, 1vh) * 16);
     overflow: auto;
@@ -192,3 +194,4 @@
 .noDataIndication {
     justify-content: center;
 }
+

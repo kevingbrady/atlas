@@ -22,7 +22,7 @@ type Props = {
 
 const noDataIndication = () => (
     <div className = {styles.noDataIndication}>
-      <p>None</p>
+      <p></p>
     </div>
 );
 
