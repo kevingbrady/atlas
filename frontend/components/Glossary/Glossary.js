@@ -388,7 +388,8 @@ export default class Glossary extends Component<Props> {
 
     let glossaryComponent = this.state[glossarySelection].map((entry) => {
 
-        let resourceLinks = DisplayResourceLinks(entry);
+        let resourceLinks = <DisplayResourceLinks resource_links={entry.resource_links}
+            style={styles.descriptionContainer}/>
 
         let cleanView =  (
             <div id={entry.id} className={styles.glossaryEntryView}>

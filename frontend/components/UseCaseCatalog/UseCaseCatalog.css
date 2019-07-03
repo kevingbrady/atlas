@@ -6,7 +6,6 @@
 
 .catalogContainer {
     background-color: grey;
-
     border-width: thick;
     border-color: #EDE6E3;
     border-radius: 15px;
@@ -55,7 +54,6 @@
 .catalogBody {
 
     background-color: #EDE6E3;
-
     border-width: medium;
     margin-bottom: 16px;
     border-radius: 15px;
@@ -87,6 +85,7 @@
     display: flex;
     position: relative;
     flex-direction: row;
+    flex-wrap: no-wrap;
     overflow-x: auto;
     overflow-y: hidden;
     margin-right: 30px;
@@ -102,7 +101,7 @@
     border-color: lightgrey;
     margin-left: 20px;
     height: calc(var(--vh, 1vh) * 25);
-    width: calc(var(--vw, 1vw) * 20);
+    width: calc(var(--vw, 1vw) * 12);
     border-radius: 15px;
     font-size: 100%;
 

@@ -1,0 +1,49 @@
+{
+    "collection_name": "Atlas_information_categories",
+    "documents": [
+        {
+            "description": "A data type for a single or set of related actions, events, or process steps.",
+            "name": "ActivityType",
+            "resource_links": [
+                {
+                    "description": "NIEM Type.",
+                    "href": "https://beta.movement.niem.gov/#/details?entityID=nc:ActivityType",
+                    "hyperlink_name": "NIEM Namespace: NIEM Core. - ActivityType"
+                }
+            ]
+        },
+        {
+            "description": "A data type for a device.",
+            "name": "DeviceType",
+            "resource_links": [
+                {
+                    "description": "NIEM Type.",
+                    "href": "https://beta.movement.niem.gov/#/details?entityID=nc:DeviceType",
+                    "hyperlink_name": "NIEM Namespace: NIEM Core. - DeviceType"
+                }
+            ]
+        },
+        {
+            "description": "A data type for a human being.",
+            "name": "PersonType",
+            "resource_links": [
+                {
+                    "description": "NIEM Type.",
+                    "href": "https://beta.movement.niem.gov/#/details?entityID=nc:PersonType",
+                    "hyperlink_name": "NIEM Namespace: NIEM Core. - PersonType"
+                }
+            ]
+        },
+        {
+            "description": "A data type for a conveyance designed to carry an operator, passengers and/or cargo, over land.",
+            "name": "VehicleType",
+            "resource_links": [
+                {
+                    "description": "NIEM Type.",
+                    "href": "https://beta.movement.niem.gov/#/details?entityID=nc:VehicleType",
+                    "hyperlink_name": "NIEM Namespace: NIEM Core. - VehicleType"
+                }
+            ]
+        }
+    ]
+}

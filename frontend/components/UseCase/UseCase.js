@@ -62,7 +62,27 @@ export default class UseCase extends PureComponent<Props> {
   }
 
   formatCIARating(cell, row){
-    return cell.confidentiality +  " | " + cell.integrity + " | " + cell.availability;
+
+    const style_lookup = {
+        "high": styles.cia_high,
+        "medium": styles.cia_medium,
+        "low": styles.cia_low
+    }
+
+    let c_className = styles.cia_high;
+    return (
+        <div className={styles.cia_table}>
+            <div className={style_lookup[cell.confidentiality]}>
+                {cell.confidentiality}
+             </div>
+             <div className={style_lookup[cell.integrity]}>
+                {cell.integrity }
+            </div>
+            <div className={style_lookup[cell.availability]}>
+                {cell.availability}
+            </div>
+        </div>
+    )
   }
 
   deleteUseCase(){

@@ -164,7 +164,7 @@
 
 .descriptionInput {
     font-size: 18px;
-    background-color: transparent;
+    background-color: white;
     outline: none;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -196,3 +196,4 @@
     background-color: dodgerblue;
     border-radius: 15px;
 }
+
