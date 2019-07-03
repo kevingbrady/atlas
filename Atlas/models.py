@@ -77,6 +77,7 @@ class InformationTypes(Document):
     security_reasoning = StringField(max_length=2000, null=True)
     triad_rating = DictField(required=True)
     information_categories = ListField(field=ObjectIdField())
+    description = StringField(max_length=2000, null=True)
 
     meta = {'collection': settings.COLLECTION_NAMES.get('information_types')}
 

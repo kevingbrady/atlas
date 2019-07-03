@@ -428,20 +428,21 @@ export default class UseCaseCatalog extends PureComponent<Props> {
                     <div className={styles.useCaseTables}>
                         <BootstrapTable
                             classes={styles.attrTable}
-                            data={use_case_actors}
-                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.getHeaderStyle()}]}
-                            rowStyle={this.getRowStyle}
-                            noDataIndication={noDataIndication}
-                            keyField="id">
-                        </BootstrapTable>
-                        <BootstrapTable
-                            classes={styles.attrTable}
                             data={use_case_information_types}
                             columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Information Types', headerStyle: this.getHeaderStyle()}]}
                             rowStyle={this.getRowStyle}
                             noDataIndication={noDataIndication}
                             keyField="id">
                         </BootstrapTable>
+                        <BootstrapTable
+                            classes={styles.attrTable}
+                            data={use_case_actors}
+                            columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.getHeaderStyle()}]}
+                            rowStyle={this.getRowStyle}
+                            noDataIndication={noDataIndication}
+                            keyField="id">
+                        </BootstrapTable>
+
                         <BootstrapTable
                             classes={styles.attrTable}
                             data={use_case_cybersecurity_threats}

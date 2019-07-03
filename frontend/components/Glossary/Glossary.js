@@ -29,7 +29,7 @@ export default class Glossary extends Component<Props> {
     super(props);
 
     this.state = {
-        glossarySelection: "actors",
+        glossarySelection: "information_categories",
         actors: [],
         activities: [],
         cybersecurity_threats: [],
@@ -359,14 +359,15 @@ export default class Glossary extends Component<Props> {
         glossarySelection
     } = this.state
 
-    let selectionOptions = {"actors": "Actors",
-                            "cybersecurity_threats": "Cybersecurity Threats",
+    let selectionOptions = {
+                            "information_categories": "Information Categories",
+                            "actors": "Actors",
                             "disciplines": "Disciplines",
                             "responding_organizations": "Responding Organizations",
                             "activities": "Activities",
                             "technologies": "Technologies",
                             "locations": "Locations",
-                            "information_categories": "Information Categories"
+                            "cybersecurity_threats": "Cybersecurity Threats"
                             };
 
     let selectionComponent = Object.entries(selectionOptions).map((option) => {

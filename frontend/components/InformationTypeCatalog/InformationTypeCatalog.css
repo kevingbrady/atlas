@@ -172,6 +172,7 @@
 .mainInfo {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
 

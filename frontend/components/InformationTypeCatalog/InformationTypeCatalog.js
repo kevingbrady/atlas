@@ -568,6 +568,34 @@ export default class InformationTypeCatalog extends Component<Props> {
                 }
         });
 
+        function ITDescription( {information_type: {description} } ){
+            if (description){
+
+                return (
+                    <div>
+                        <h3>Description:</h3>
+                        <p>{description}</p>
+                    </div>
+                )
+            }
+            else{
+                return <div/>
+            }
+        }
+        function SecurityReasoning( {information_type: {security_reasoning} } ){
+            if (security_reasoning){
+
+                return (
+                    <div>
+                        <h3>Security Reasoning:</h3>
+                        <p>{security_reasoning}</p>
+                    </div>
+                )
+            }
+            else{
+                return <div/>
+            }
+        }
         let cleanView = (
             <div key={information_type.id} className={styles.informationTypeView}>
                 <div className={styles.optionsBar}>
@@ -593,24 +621,31 @@ export default class InformationTypeCatalog extends Component<Props> {
                 </div>
                 <div className={styles.informationTypeInfo}>
                     <div className={styles.mainInfo}>
-                         <p>{information_type.security_reasoning}</p>
-                         <BootstrapTable
-                            classes={styles.ciaTable}
-                            data={tableData}
-                            columns={[
-                                {dataField: "id", text: "ID", hidden: true},
-                                {dataField: "triad_rating.confidentiality", text: 'Confidentiality', editable: false, headerStyle: headerStyle},
-                                {dataField: "triad_rating.integrity", text: 'Integrity', editable: false, headerStyle: headerStyle},
-                                {dataField: "triad_rating.availability", text: 'Availability', editable: false, headerStyle: headerStyle}
-                                ]}
-                            cellEdit={ cellEditFactory({ mode:'dbclick' }) }
-                            rowStyle={this.getRowStyle}
-                            keyField="id">
-                        </BootstrapTable>
+                         <ITDescription information_type={information_type}/>
+                         <div>
+                            <h3>Security Classification</h3>
+                             <BootstrapTable
+                                classes={styles.ciaTable}
+                                data={tableData}
+                                columns={[
+                                    {dataField: "id", text: "ID", hidden: true},
+                                    {dataField: "triad_rating.confidentiality", text: 'Confidentiality', editable: false, headerStyle: headerStyle},
+                                    {dataField: "triad_rating.integrity", text: 'Integrity', editable: false, headerStyle: headerStyle},
+                                    {dataField: "triad_rating.availability", text: 'Availability', editable: false, headerStyle: headerStyle}
+                                    ]}
+                                cellEdit={ cellEditFactory({ mode:'dbclick' }) }
+                                rowStyle={this.getRowStyle}
+                                keyField="id">
+                            </BootstrapTable>
+                            <SecurityReasoning information_type={information_type}/>
+                         </div>
                      </div>
-                <ButtonToolbar className={styles.informationCategories}>
-                        {information_type_categories}
-                </ButtonToolbar>
+                    <div>
+                        <h3>Information Categories</h3>
+                        <ButtonToolbar className={styles.informationCategories}>
+                                {information_type_categories}
+                        </ButtonToolbar>
+                    </div>
                 </div>
             </div>
         )
