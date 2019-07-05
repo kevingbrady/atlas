@@ -386,7 +386,16 @@ export default class Glossary extends Component<Props> {
         )
     });
 
-    let glossaryComponent = this.state[glossarySelection].map((entry) => {
+    let glossaryComponent = this.state[glossarySelection].sort( (a, b)=>{
+        if (a.name.toLowerCase() < b.name.toLowerCase() ){
+            return -1;
+        }
+        if( a.name.toLowerCase() > b.name.toLowerCase() ){
+            return 1;
+        }
+
+        return 0;
+    }).map((entry) => {
 
         let resourceLinks = <DisplayResourceLinks resource_links={entry.resource_links}
             style={styles.descriptionContainer}/>

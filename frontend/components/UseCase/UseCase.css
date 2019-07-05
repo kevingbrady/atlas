@@ -67,13 +67,14 @@
 }
 
 .headerFormat {
+    padding: 10px;
     overflow: auto;
 }
 
 .headerFormat p {
+
     margin-left: 30px;
     font-size: 18px;
-    height: calc(var(--vh, 1vh) * 38.5);
 }
 
 .informationTypes {

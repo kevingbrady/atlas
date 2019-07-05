@@ -6,6 +6,7 @@ import Description from "@material-ui/icons/Description";
 import KeyboardBackspace from "@material-ui/icons/KeyboardBackspace";
 import Delete from "@material-ui/icons/Delete";
 import Tooltip from '@material-ui/core/Tooltip';
+import SanitizedHTML from 'react-sanitized-html';
 
 type Props = {
     use_case: object;
@@ -202,10 +203,14 @@ export default class UseCase extends PureComponent<Props> {
             <div className={styles.useCaseBody}>
                 <div className={styles.useCaseInfo}>
                     <div className={styles.headerFormat}>
-                        <p>{this.props.use_case.description}</p>
+                        <SanitizedHTML
+                            allowedTags={['p','br', 'ul', 'li', 'b', 'h3']}
+                            html={this.props.use_case.description}
+                        >
+                        </SanitizedHTML>
                     </div>
+                    <h3>Source: {this.props.use_case.source}</h3>
                     <div className={styles.informationTypes}>
-                        <p className={styles.sourceTitle}>Source: {this.props.use_case.source}</p>
                         <div className={styles.informationTypesTitle}><h3>Information Types</h3></div>
                         <BootstrapTable
                             classes={styles.informationTypeTable}
@@ -229,30 +234,6 @@ export default class UseCase extends PureComponent<Props> {
                 <div className={styles.useCaseTables}>
                     <BootstrapTable
                         classes={styles.attrTable}
-                        data={use_case_actors}
-                        columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.props.getHeaderStyle()}]}
-                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
-                        rowEvents={this.rowEvents}
-                        noDataIndication={noDataIndication}
-                        keyField="id"
-                        striped
-                        hover
-                        condensed>
-                    </BootstrapTable>
-                    <BootstrapTable
-                        classes={styles.attrTable}
-                        data={use_case_cybersecurity_threats}
-                        columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Cybersecurity Threats', headerStyle: this.props.getHeaderStyle()}]}
-                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
-                        rowEvents={this.rowEvents}
-                        noDataIndication={noDataIndication}
-                        keyField="id"
-                        striped
-                        hover
-                        condensed>
-                    </BootstrapTable>
-                    <BootstrapTable
-                        classes={styles.attrTable}
                         data={use_case_disciplines}
                         columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Disciplines', headerStyle: this.props.getHeaderStyle()}]}
                         rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
@@ -267,6 +248,18 @@ export default class UseCase extends PureComponent<Props> {
                         classes={styles.attrTable}
                         data={use_case_responding_organizations}
                         columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Responding Organizations', headerStyle: this.props.getHeaderStyle()}]}
+                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
+                        rowEvents={this.rowEvents}
+                        noDataIndication={noDataIndication}
+                        keyField="id"
+                        striped
+                        hover
+                        condensed>
+                    </BootstrapTable>
+                    <BootstrapTable
+                        classes={styles.attrTable}
+                        data={use_case_actors}
+                        columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Actors', headerStyle: this.props.getHeaderStyle()}]}
                         rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
                         rowEvents={this.rowEvents}
                         noDataIndication={noDataIndication}
@@ -303,6 +296,18 @@ export default class UseCase extends PureComponent<Props> {
                         classes={styles.attrTable}
                         data={use_case_locations}
                         columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Locations', headerStyle: this.props.getHeaderStyle()}]}
+                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
+                        rowEvents={this.rowEvents}
+                        noDataIndication={noDataIndication}
+                        keyField="id"
+                        striped
+                        hover
+                        condensed>
+                    </BootstrapTable>
+                     <BootstrapTable
+                        classes={styles.attrTable}
+                        data={use_case_cybersecurity_threats}
+                        columns={[{dataField: "id", text: "ID", hidden: true}, {dataField: "name", text: 'Cybersecurity Threats', headerStyle: this.props.getHeaderStyle()}]}
                         rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
                         rowEvents={this.rowEvents}
                         noDataIndication={noDataIndication}

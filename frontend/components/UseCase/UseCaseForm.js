@@ -12,6 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Popup from "reactjs-popup";
 import Select from 'react-select';
 
+
 type Props = {
     use_case: object;
     actors: object,
@@ -380,62 +381,8 @@ export default class UseCase extends Component<Props> {
                     </div>
                 </div>
                 <div className={styles.useCaseTables}>
-                    <BootstrapTable
-                        classes={styles.attrTable}
-                        data={use_case_actors}
-                        columns = {
-                            [
-                            {   dataField: "id",
-                                text: "ID",
-                                hidden: true
-                            },
-                            {   dataField: "name",
-                                text: "Actors",
-                                headerStyle: this.props.getHeaderStyle(),
 
-                            },
-                            {   isDummyField: true,
-                                editable: false,
-                                dataField: "actors",
-                                text: this.addRowIcon("Actors", "actors"),
-                                formatter: this.deleteRowIcon,
-                                events: { onClick: (e, column, columnIndex, row, rowIndex) => this.deleteRow(e, column, columnIndex, row, rowIndex)},
-                                headerStyle: {...this.props.getHeaderStyle(), width: '6%'},
-                                style: { width: '11%' }
-                            }
-                            ]}
-                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
-                        rowEvents={this.rowEvents}
-                        noDataIndication={noDataIndication}
-                        keyField="id"
-                        striped
-                        hover
-                        condensed>
-                    </BootstrapTable>
-                    <BootstrapTable
-                        classes={styles.attrTable}
-                        data={use_case_cybersecurity_threats}
-                        columns={[
-                            {dataField: "id", text: "ID", hidden: true},
-                            {dataField: "name", text: "Cybersecurity Threats", headerStyle: this.props.getHeaderStyle()},
-                            {   isDummyField: true,
-                                editable: false,
-                                dataField: "cybersecurity_threats",
-                                text: this.addRowIcon("Cybersecurity Threats", "cybersecurity_threats"),
-                                formatter: this.deleteRowIcon,
-                                events: { onClick: (e, column, columnIndex, row, rowIndex) => this.deleteRow(e, column, columnIndex, row, rowIndex)},
-                                headerStyle: {...this.props.getHeaderStyle(), width: '6%'},
-                                style: { width: '12%' }
-                            }
-                            ]}
-                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
-                        rowEvents={this.rowEvents}
-                        noDataIndication={noDataIndication}
-                        keyField="id"
-                        striped
-                        hover
-                        condensed>
-                    </BootstrapTable>
+
                     <BootstrapTable
                         classes={styles.attrTable}
                         data={use_case_disciplines}
@@ -474,6 +421,38 @@ export default class UseCase extends Component<Props> {
                                 events: { onClick: (e, column, columnIndex, row, rowIndex) => this.deleteRow(e, column, columnIndex, row, rowIndex)},
                                 headerStyle: {...this.props.getHeaderStyle(), width: '6%'},
                                 style: { width: '12%' }
+                            }
+                            ]}
+                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
+                        rowEvents={this.rowEvents}
+                        noDataIndication={noDataIndication}
+                        keyField="id"
+                        striped
+                        hover
+                        condensed>
+                    </BootstrapTable>
+                    <BootstrapTable
+                        classes={styles.attrTable}
+                        data={use_case_actors}
+                        columns = {
+                            [
+                            {   dataField: "id",
+                                text: "ID",
+                                hidden: true
+                            },
+                            {   dataField: "name",
+                                text: "Actors",
+                                headerStyle: this.props.getHeaderStyle(),
+
+                            },
+                            {   isDummyField: true,
+                                editable: false,
+                                dataField: "actors",
+                                text: this.addRowIcon("Actors", "actors"),
+                                formatter: this.deleteRowIcon,
+                                events: { onClick: (e, column, columnIndex, row, rowIndex) => this.deleteRow(e, column, columnIndex, row, rowIndex)},
+                                headerStyle: {...this.props.getHeaderStyle(), width: '6%'},
+                                style: { width: '11%' }
                             }
                             ]}
                         rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
@@ -542,6 +521,30 @@ export default class UseCase extends Component<Props> {
                                 editable: false,
                                 dataField: "locations",
                                 text: this.addRowIcon("Locations", "locations"),
+                                formatter: this.deleteRowIcon,
+                                events: { onClick: (e, column, columnIndex, row, rowIndex) => this.deleteRow(e, column, columnIndex, row, rowIndex)},
+                                headerStyle: {...this.props.getHeaderStyle(), width: '6%'},
+                                style: { width: '12%' }
+                            }
+                            ]}
+                        rowStyle={this.state.showConceptLinks ? this.conceptLinkRowStyle : this.props.getRowStyle}
+                        rowEvents={this.rowEvents}
+                        noDataIndication={noDataIndication}
+                        keyField="id"
+                        striped
+                        hover
+                        condensed>
+                    </BootstrapTable>
+                     <BootstrapTable
+                        classes={styles.attrTable}
+                        data={use_case_cybersecurity_threats}
+                        columns={[
+                            {dataField: "id", text: "ID", hidden: true},
+                            {dataField: "name", text: "Cybersecurity Threats", headerStyle: this.props.getHeaderStyle()},
+                            {   isDummyField: true,
+                                editable: false,
+                                dataField: "cybersecurity_threats",
+                                text: this.addRowIcon("Cybersecurity Threats", "cybersecurity_threats"),
                                 formatter: this.deleteRowIcon,
                                 events: { onClick: (e, column, columnIndex, row, rowIndex) => this.deleteRow(e, column, columnIndex, row, rowIndex)},
                                 headerStyle: {...this.props.getHeaderStyle(), width: '6%'},

@@ -517,7 +517,16 @@ export default class InformationTypeCatalog extends Component<Props> {
 
     const animatedComponents = makeAnimated({ MultiValue: this.multiValue });
 
-    let informationTypesViewer = information_types.map((information_type) => {
+    let informationTypesViewer = information_types.sort( (a, b)=>{
+        if (a.name.toLowerCase() < b.name.toLowerCase() ){
+            return -1;
+        }
+        if( a.name.toLowerCase() > b.name.toLowerCase() ){
+            return 1;
+        }
+
+        return 0;
+    }).map((information_type) => {
 
         let tableData = [information_type];
 
@@ -570,18 +579,12 @@ export default class InformationTypeCatalog extends Component<Props> {
         });
 
         function ITDescription( {information_type: {description}, className: {className} } ){
-            if (description){
-
-                return (
-                    <div className={styles.Rtable_cell}>
-                        <h3>Description:</h3>
-                        <p>{description}</p>
-                    </div>
-                )
-            }
-            else{
-                return <div/>
-            }
+            return (
+                <div className={styles.Rtable_cell}>
+                    <h3>Description:</h3>
+                    <p>{description}</p>
+                </div>
+            )
         }
         function SecurityReasoning( {information_type: {security_reasoning} }){
             if (security_reasoning){

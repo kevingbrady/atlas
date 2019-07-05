@@ -378,7 +378,16 @@ export default class UseCaseCatalog extends PureComponent<Props> {
             information_types,
             locations } = this.props;
 
-    const catalogView = use_cases.map((use_case) => {
+    const catalogView = use_cases.sort( (a, b)=>{
+        if (a.name.toLowerCase() < b.name.toLowerCase() ){
+            return -1;
+        }
+        if( a.name.toLowerCase() > b.name.toLowerCase() ){
+            return 1;
+        }
+
+        return 0;
+    }).map((use_case) => {
 
             let use_case_actors = use_case['actors'].map((entry_id) => {
                 let entry = actors.find(entry => entry.id == entry_id)

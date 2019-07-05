@@ -47,7 +47,8 @@ export const updateInformationCategory = (state) => {
         'id': state.id,
         'name': state.name,
         'description': state.description,
-        'source': state.source
+        'source': state.source,
+        'resource_links': state.resource_links
     }
 
     return dispatch => {
@@ -71,7 +72,8 @@ export const createInformationCategory = (state) => {
     let information_category = {
         'name': state.name,
         'description': state.description,
-        'source': state.source
+        'source': state.source,
+        'resource_links': state.resource_links
     }
 
     return dispatch => {
